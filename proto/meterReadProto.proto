@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+// The greeting service definition.
+service MeterReadService {
+  // Sends a greeting
+  rpc SubmitMeterRead (MeterRead) returns (MeterReadReply) {}
+}
+
+// The request message containing the user's name.
+message MeterRead {
+  string SerialNo = 1;
+  google.protobuf.Timestamp date = 2;
+  int64 Reg1Read = 3;
+  int64 Reg2Read = 4;
+}
+
+// The response message containing the greetings
+message MeterReadReply {
+  string message = 1;
+}
